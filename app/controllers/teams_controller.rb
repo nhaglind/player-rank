@@ -1,0 +1,47 @@
+class TeamsController < ApplicationController
+  def index 
+    @teams = Team.all
+  end
+
+  def show
+    @team = Team.find(params[:id])
+  end
+
+  def new
+    @team = Team.new
+  end
+
+  def edit
+    @team = current_user.teams.find(params[:id])
+  end
+
+  def create
+    @team = Team.new(team_params)
+    @team.user = current_user
+    respond_to do |format|
+      if @team.save
+        format.html { redirect_to @team, notice: 'Team was made!' }
+        format.json { render :show, status: :created, location: @team }
+      else
+        format.html { render :new }
+        format.json { render json: @team.errors.full_messages, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+  end
+
+  def destroy
+    @team = Team.find(params[:id]).destroy
+    respond_to do |format|
+      format.html { redirect_to matters_url, notice: 'Team was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    def team_params
+      params.require(:team).permit(:team_name)
+    end
+end

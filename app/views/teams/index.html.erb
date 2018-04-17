@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Team Owner</th>
+    <th>Team Name</th>
+    <th>Edit</th>
+  </tr>
+<% @teams.each do |team| %>
+    <tr>
+      <td><%= team.user.email %>
+      <td><%= team.team_name %></td>
+      <td><%= link_to "Edit",edit_team_path(team) %></td>
+    </tr>
+<% end %>
+</table>
