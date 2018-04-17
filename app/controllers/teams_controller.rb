@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    @team = Team.find(params[:id])
+    @team = current_user.teams.find(params[:id])
   end
 
   def create
