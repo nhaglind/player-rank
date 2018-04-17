@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+  before_action :authenticate_user!, :except => [:show, :index]
+
   def index 
     @teams = Team.all
   end
@@ -12,7 +14,7 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    @team = current_user.teams.find(params[:id])
+    @team = Team.find(params[:id])
   end
 
   def create
@@ -24,12 +26,22 @@ class TeamsController < ApplicationController
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }
-        format.json { render json: @team.errors.full_messages, status: :unprocessable_entity }
+        format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
+    @team = Team.find(params[:id])
+    respond_to do |format|
+      if @team.update_attributes(team_params)
+        format.html { redirect_to @team, notice: 'Team was updated!' }
+        format.json { render :show, status: :ok, location: @team }
+      else
+        format.html { render :edit }
+        format.json { render json: @team.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy

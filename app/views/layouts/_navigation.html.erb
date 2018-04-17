@@ -1,8 +1,18 @@
-<%= link_to 'Home', root_path %>
-<% if user_signed_in? %>
-  <%= link_to 'Create Team', new_team_path %>
-  <%= link_to 'Teams', teams_path %>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-<% else %>
-  <%= link_to('Login', new_user_session_path)  %>  
-<% end %>
+<nav class="uk-navbar-container" uk-navbar>
+  <div class="uk-navbar-left">
+    <ul class="uk-navbar-nav">
+    <li><%= link_to 'Home', root_path %></li>
+    <% if user_signed_in? %>
+    <li><%= link_to 'Create Team', new_team_path %></li>
+    <li><%= link_to 'Teams', teams_path %></li>
+    </ul>
+  </div>
+  <div class="uk-navbar-right">
+    <ul class="uk-navbar-nav">
+    <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %> </li>       
+      <% else %>
+      <li><%= link_to('Login', new_user_session_path)  %>  </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

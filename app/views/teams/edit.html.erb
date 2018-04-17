@@ -1,1 +1,21 @@
-EDIT BABY
+<%= form_for @team do |f| %>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">1</label>
+    <div class="uk-form-controls">
+      <%= f.text_field :team_name, class: 'uk-input' %>
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">2</label>
+    <div class="uk-form-controls">
+      <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Some text...">
+    </div>
+  </div>
+    <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">3</label>
+    <div class="uk-form-controls">
+        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Some text...">
+    </div>
+  </div>
+  <%= f.submit class: 'uk-button uk-button-primary' %>
+<% end %>

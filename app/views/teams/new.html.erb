@@ -1,4 +1,8 @@
+<h2 class="uk-h3 tm-heading-fragment">Create Team</h2>
+
 <%= form_for @team do |f| %>
-  <%= f.text_field :team_name %>
-  <%= f.submit %>
+  <%= f.text_field :team_name, class: 'uk-input' %>
+  <br>
+  <br>
+  <%= f.submit class: 'uk-button uk-button-default' %>
 <% end%>
