@@ -16,7 +16,12 @@
     <%= render 'layouts/navigation.html' %>
     <div class="uk-container">
       <div class="uk-section">
-        <%= yield %>
+      <% flash.each do |key, value| %>
+        <div class="uk-alert-primary uk-alert">
+        <p><%= value %></p>
+        </div>
+      <% end %>
+      <%= yield %>
       </div>
     </div>
   </body>

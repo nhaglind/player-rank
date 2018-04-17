@@ -1,20 +1,74 @@
-<%= form_for @team do |f| %>
+<p>This is where you pick your players. It's a priority based system. 1 being the <strong>most important</strong> and weighted the most. You're able to edit your team until the tournament starts and then it is locked until the cut in which you'll have a small-window to make adjustments.</p>
+
+<p class="uk-text-center"><%= @team.team_name %></p>
+
+<hr class="uk-divider-icon">
+
+<%= form_for @team, :html => { id: :form_id, :class => 'uk-form-horizontal' }  do |f| %>
   <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">1</label>
+    <label class="uk-form-label" for="form-horizontal-text">Team Name</label>
     <div class="uk-form-controls">
       <%= f.text_field :team_name, class: 'uk-input' %>
     </div>
   </div>
   <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">2</label>
+    <label class="uk-form-label" for="form-horizontal-text">1</label>
     <div class="uk-form-controls">
-      <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Some text...">
+    <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Tiger Woods">
     </div>
   </div>
-    <div class="uk-margin">
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">2</label>
+    <div class="uk-form-controls">
+    <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Tiger Woods">
+    </div>
+  </div>
+  <div class="uk-margin">
     <label class="uk-form-label" for="form-horizontal-text">3</label>
     <div class="uk-form-controls">
-        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Some text...">
+    <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Tiger Woods">
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">4</label>
+    <div class="uk-form-controls">
+    <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Tiger Woods">
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">5</label>
+    <div class="uk-form-controls">
+    <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Tiger Woods">
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">6</label>
+    <div class="uk-form-controls">
+    <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Tiger Woods">
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">7</label>
+    <div class="uk-form-controls">
+    <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Tiger Woods">
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">8</label>
+    <div class="uk-form-controls">
+    <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Tiger Woods">
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">9</label>
+    <div class="uk-form-controls">
+    <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Tiger Woods">
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-horizontal-text">10</label>
+    <div class="uk-form-controls">
+    <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Tiger Woods">
     </div>
   </div>
   <%= f.submit class: 'uk-button uk-button-primary' %>

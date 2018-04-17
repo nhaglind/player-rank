@@ -1,4 +1,5 @@
-<h2><%= @team.team_name %></h2>
+<h3><%= @team.team_name %></h3>
+<p>Please set your lineup.</p>
 <table class="uk-table uk-table-responsive uk-table-divider">
   <thead>
     <tr>
@@ -35,3 +36,5 @@
     </tr>
   </tbody>
 </table>
+
+<%= link_to 'Edit Team', edit_team_path(@team), class: "uk-button uk-button-default" %>
