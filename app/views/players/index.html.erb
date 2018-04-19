@@ -1,0 +1,15 @@
+<p>Here are all the players that have been added.</p>
+<table class="uk-table uk-table-small uk-table-divider">
+  <thead>
+    <tr>
+      <th>Player Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @players.each do |player| %>
+    <tr>
+      <td><%= link_to player.full_name, player_path(player) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

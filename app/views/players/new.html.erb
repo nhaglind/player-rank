@@ -1,0 +1,8 @@
+<h2 class="uk-h3 tm-heading-fragment">Add Player</h2>
+<p>We're just setting up your team name and profile. You will pick your players on the next step.</p>
+<%= form_for @player do |f| %>
+  <%= f.text_field :full_name, class: 'uk-input' %>
+  <br>
+  <br>
+  <%= f.submit class: 'uk-button uk-button-default' %>
+<% end%>
