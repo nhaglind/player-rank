@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180418171358) do
+ActiveRecord::Schema.define(version: 20180423132635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,21 +21,22 @@ ActiveRecord::Schema.define(version: 20180418171358) do
     t.string "full_name"
   end
 
+  create_table "team_players", force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "player_id"
+    t.integer "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["player_id"], name: "index_team_players_on_player_id"
+    t.index ["team_id", "player_id"], name: "index_team_players_on_team_id_and_player_id", unique: true
+    t.index ["team_id", "position"], name: "index_team_players_on_team_id", unique: true
+  end
+
   create_table "teams", force: :cascade do |t|
     t.bigint "user_id"
     t.string "team_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "r1"
-    t.integer "r2"
-    t.integer "r3"
-    t.integer "r4"
-    t.integer "r5"
-    t.integer "r6"
-    t.integer "r7"
-    t.integer "r8"
-    t.integer "r9"
-    t.integer "r10"
     t.index ["user_id"], name: "index_teams_on_user_id"
   end
 

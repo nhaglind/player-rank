@@ -11,64 +11,24 @@
       <%= f.text_field :team_name, class: 'uk-input' %>
     </div>
   </div>
+  <%= f.submit class: 'uk-button uk-button-primary' %>
+<% end %>
+
+<%= form_for @team_player, :html => { id: :form_id_2, :class => 'uk-form-horizontal' }  do |f| %>
   <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">1</label>
+    <label class="uk-form-label" for="form-horizontal-text">Position 1</label>
     <div class="uk-form-controls">
-    <%= f.collection_select(:r1, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
+      <%= f.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
     </div>
-  </div>
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">2</label>
     <div class="uk-form-controls">
-    <%= f.collection_select(:r2, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
+      <%= f.text_field :position[0], class: 'uk-input' %>
     </div>
-  </div>
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">3</label>
+    <label class="uk-form-label" for="form-horizontal-text">Position 2</label>
     <div class="uk-form-controls">
-    <%= f.collection_select(:r3, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
+      <%= f.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
     </div>
-  </div>
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">4</label>
     <div class="uk-form-controls">
-    <%= f.collection_select(:r4, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
-    </div>
-  </div>
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">5</label>
-    <div class="uk-form-controls">
-    <%= f.collection_select(:r5, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
-    </div>
-  </div>
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">6</label>
-    <div class="uk-form-controls">
-    <%= f.collection_select(:r6, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
-    </div>
-  </div>
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">7</label>
-    <div class="uk-form-controls">
-    <%= f.collection_select(:r7, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
-    </div>
-  </div>
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">8</label>
-    <div class="uk-form-controls">
-    <%= f.collection_select(:r8, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
-    </div>
-  </div>
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">9</label>
-    <div class="uk-form-controls">
-    <%= f.collection_select(:r9, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
-    </div>
-  </div>
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">10</label>
-    <div class="uk-form-controls">
-    <%= f.collection_select(:r10, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
+      <%= f.text_field :position[1], class: 'uk-input' %>
     </div>
   </div>
   <%= f.submit class: 'uk-button uk-button-primary' %>
