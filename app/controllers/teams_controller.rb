@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
+    3.times { @team.team_players.build }
   end
 
   def edit
@@ -55,6 +56,6 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:team_name)
+    params.require(:team).permit(:team_name, team_player_attributes: [:id, :team_id, :player_id, :position])
   end
 end

@@ -6,20 +6,20 @@
   </div>
   <div class="form-group">
     <%= f.fields_for :team_player do |team_player| %>
-    <%= f.collection_select(:player_ids, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
-    <%= f.hidden_field :position, value: 1 %>
+    <%= team_player.collection_select(:player_ids, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
+    <%= team_player.hidden_field :position, value: 1 %>
     <% end %>
   </div>
   <div class="form-group">
     <%= f.fields_for :team_player do |team_player| %>
-    <%= f.collection_select(:player_ids, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
-    <%= f.hidden_field :position, value: 2 %>
+    <%= team_player.collection_select(:player_ids, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
+    <%= team_player.hidden_field :position, value: 2 %>
     <% end %>
   </div>
   <div class="form-group">
     <%= f.fields_for :team_player do |team_player| %>
-    <%= f.collection_select(:player_ids, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
-    <%= f.hidden_field :position, value: 3 %>
+    <%= team_player.collection_select(:player_ids, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
+    <%= team_player.hidden_field :position, value: 3 %>
     <% end %>
   </div>
   <%= f.submit class: 'btn btn-primary input-group-btn' %>
