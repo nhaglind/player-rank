@@ -1,22 +1,16 @@
-<div class="uk-container uk-container-expand">
-  <nav class="uk-navbar">
-    <div class="uk-navbar-left">
-      <ul class="uk-navbar-nav">
-      <li><%= link_to 'Home', root_path %></li>
+<header class="navbar">
+  <section class="navbar-section">
+      <%= link_to 'Home', root_path, class: 'btn btn-link' %>
       <% if user_signed_in? %>
-      <li><%= link_to 'Create Team', new_team_path %></li>
-      <li><%= link_to 'Teams', teams_path %></li>
-      <li><%= link_to 'Add Player', new_player_path %></li>
-      <li><%= link_to 'Players', players_path %></li>
-      </ul>
-    </div>
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav">
-      <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>       
+      <%= link_to 'Create Team', new_team_path, class: 'btn btn-link' %>
+      <%= link_to 'Teams', teams_path, class: 'btn btn-link' %>
+      <%= link_to 'Add Player', new_player_path, class: 'btn btn-link' %>
+      <%= link_to 'Players', players_path, class: 'btn btn-link' %>
+  </section>
+  <section class="navbar-section">
+      <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'btn btn-link') %>    
       <% else %>
-      <li><%= link_to('Login', new_user_session_path)  %></li>
+      <%= link_to('Login', new_user_session_path, class: 'btn btn-link')  %>
       <% end %>
-      </ul>
-    </div>
-  </nav>
-</div>
+  </section>
+</header>

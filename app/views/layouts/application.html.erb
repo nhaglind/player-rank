@@ -5,25 +5,25 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/css/uikit.min.css" />
-    <!-- UIkit JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
   </head>
 
   <body>
-    <%= render 'layouts/navigation.html' %>
-    <div class="uk-container">
-      <div class="uk-section">
-      <% flash.each do |key, value| %>
-        <div class="uk-alert-primary uk-alert">
-        <p><%= value %></p>
-        </div>
-      <% end %>
-      <%= yield %>
-      </div>
+  <%= render 'layouts/navigation.html' %>
+  <br>
+
+  <% flash.each do |key, value| %>
+    <div class="toast"><%= value %></div>
+  <% end %>
+
+  <div class="container grid-lg">
+    <div class="columns">
+    <%= yield %>
     </div>
+  </div>
+
   </body>
 
 </html>

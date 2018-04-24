@@ -1,35 +1,3 @@
-<p>This is where you pick your players. It's a priority based system. 1 being the <strong>most important</strong> and weighted the most. You're able to edit your team until the tournament starts and then it is locked until the cut in which you'll have a small-window to make adjustments.</p>
+<%= @team.team_name %>
 
-<p class="uk-text-center"><%= @team.team_name %></p>
 
-<hr class="uk-divider-icon">
-
-<%= form_for @team, :html => { id: :form_id, :class => 'uk-form-horizontal' }  do |f| %>
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">Team Name</label>
-    <div class="uk-form-controls">
-      <%= f.text_field :team_name, class: 'uk-input' %>
-    </div>
-  </div>
-  <%= f.submit class: 'uk-button uk-button-primary' %>
-<% end %>
-
-<%= form_for @team_player, :html => { id: :form_id_2, :class => 'uk-form-horizontal' }  do |f| %>
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-horizontal-text">Position 1</label>
-    <div class="uk-form-controls">
-      <%= f.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
-    </div>
-    <div class="uk-form-controls">
-      <%= f.text_field :position[0], class: 'uk-input' %>
-    </div>
-    <label class="uk-form-label" for="form-horizontal-text">Position 2</label>
-    <div class="uk-form-controls">
-      <%= f.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'uk-input'}) %>
-    </div>
-    <div class="uk-form-controls">
-      <%= f.text_field :position[1], class: 'uk-input' %>
-    </div>
-  </div>
-  <%= f.submit class: 'uk-button uk-button-primary' %>
-<% end %>
