@@ -1,5 +1,9 @@
 <div class="column">
 <h4><%= @team.team_name %></h4>
 
+<% @team.team_players.each do |team_player| %>
+  <p><%= team_player.position %>: <%= team_player.player.full_name %></p>
+<% end %>
+
 <%= link_to 'Edit Team', edit_team_path(@team), class: "btn btn-primary input-group-btn" %>
 </div>
