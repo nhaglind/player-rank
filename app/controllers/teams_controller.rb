@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
-    3.times { @team.team_players.build }
+    @team.team_players.new
   end
 
   def edit
