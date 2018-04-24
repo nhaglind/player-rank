@@ -1,19 +1,30 @@
 <div class="column">
 <h4>Create Team</h4>
+<%= @team.errors.full_messages.first if @team.errors.any? %>
 <%= form_for @team, :html => { id: :form_id, :class => 'form-horizontal' } do |f| %>
   <div class="form-group">
-  <%= f.text_field :team_name, class: 'form-input' %>
+    <label class="form-label">Team Name</label>
+    <%= f.text_field :team_name, class: 'form-input' %>
   </div>
+
   <% for i in 1..10 do %>
+    <%= f.fields_for :team_players do |team_player| %>
     <div class="form-group">
-      <%= f.fields_for :team_players do |team_player| %>
-      <%= team_player.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
-      <%= team_player.hidden_field :position, value: "#{i}" %>
+      <div class="col-2 col-sm-12">
+        <label class="form-label">Rank <%= "#{i}" %></label>
+      </div>
+      <div class="col-10 col-sm-12">
+        <%= team_player.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
+        <%= team_player.hidden_field :position, value: "#{i}" %>
+      </div>
     </div>
+    <% end %>
   <% end %>
-  <% end %>
-  </div>
-  </div>
-  <%= f.submit class: 'btn btn-primary submission', form: :form_id %>
-<% end%>
 </div>
+</div>
+<%= f.submit class: 'btn btn-primary submission', form: :form_id %>
+<% end%>
+<br><br>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae felis bibendum, tempus ipsum ac, finibus est. Integer magna nibh, venenatis non tristique quis, bibendum at lorem. Nam at ante quis massa vestibulum vestibulum sit amet imperdiet metus. Nulla non iaculis augue. Morbi in turpis sed lectus aliquet commodo. Cras ornare nunc quis est dapibus porta ac nec urna. Nulla malesuada risus ut consectetur pharetra. Praesent lorem leo, tincidunt tincidunt vehicula eget, cursus ac magna. Maecenas at dictum mi. Nunc vel blandit neque. Sed feugiat sit amet mauris non sollicitudin.
+</div>
+
