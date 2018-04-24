@@ -1,3 +1,17 @@
-<%= @team.team_name %>
+<div class="column">
+<h4>Edit Team <%= @team.team_name%></h4>
 
+<%= form_for @team, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+  Team Name: <%= f.text_field :team_name, class: 'form-input' %>
+  </div>
 
+  <%= f.fields_for :team_players do |team_player| %>
+    <div class="form-group">
+    <%= team_player.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
+    </div>  
+  <% end %>
+  
+  <%= f.submit class: 'btn btn-primary input-group-btn' %>
+<% end%>
+</div>

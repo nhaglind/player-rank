@@ -1,27 +1,19 @@
 <div class="column">
 <h4>Create Team</h4>
-<%= form_for @team, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @team, :html => { id: :form_id, :class => 'form-horizontal' } do |f| %>
   <div class="form-group">
   <%= f.text_field :team_name, class: 'form-input' %>
   </div>
-  <div class="form-group">
-    <%= f.fields_for :team_players do |team_player| %>
-    <%= team_player.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
-    <%= team_player.hidden_field :position, value: 1 %>
-    <% end %>
+  <% for i in 1..10 do %>
+    <div class="form-group">
+      <%= f.fields_for :team_players do |team_player| %>
+      <%= team_player.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
+      <%= team_player.hidden_field :position, value: "#{i}" %>
+    </div>
+  <% end %>
+  <% end %>
   </div>
-  <div class="form-group">
-    <%= f.fields_for :team_players do |team_player| %>
-    <%= team_player.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
-    <%= team_player.hidden_field :position, value: 2 %>
-    <% end %>
   </div>
-  <div class="form-group">
-    <%= f.fields_for :team_players do |team_player| %>
-    <%= team_player.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
-    <%= team_player.hidden_field :position, value: 3 %>
-    <% end %>
-  </div>
-  <%= f.submit class: 'btn btn-primary input-group-btn' %>
+  <%= f.submit class: 'btn btn-primary submission', form: :form_id %>
 <% end%>
 </div>
