@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
   </head>
 
-  <body>
-  <%= render 'layouts/navigation.html' %>
-  <br>
-
   <% flash.each do |key, value| %>
     <div class="toast"><%= value %></div>
   <% end %>
+  
+  <body>
+  <%= render 'layouts/navigation.html' %>
+  <br>
   
   <div class="container grid-lg">
     <div class="columns">

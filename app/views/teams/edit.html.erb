@@ -5,9 +5,26 @@
 
 <%= form_for @team, :html => { id: :form_id, :class => 'form-horizontal' } do |f| %>
   <div class="form-group">
-    <label class="form-label">Team Name</label>
-    <%= f.text_field :team_name, class: 'form-input' %>
+    <div class="col-2 col-sm-12">
+      <label class="form-label">Team Name</label>
+    </div>
+    <div class="col-10 col-sm-12">
+      <%= f.text_field :team_name, class: 'form-input' %>
+    </div>
   </div>
+  <div class="form-group">
+    <div class="col-2 col-sm-12">
+      <label class="form-label">Tournament</label>
+    </div>
+    <div class="col-10 col-sm-12">
+      #
+    </div>
+  </div>
+
+  <br>
+  <div class="divider text-center" data-content="ADJUST LINE-UP"></div>
+  <br>
+
   <%= f.fields_for :team_players do |team_player| %>
   <div class="form-group">
     <div class="col-2 col-sm-12">
