@@ -1,7 +1,68 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+player_list = [
+  "J.J. Spaun",
+  "Chris Kirk",
+  "Zach Johnson",
+  "Brian Gay",
+  "Sean O'Hair",
+  "Matt Kuchar",
+  "Hideki Matsuyama",
+  "Tom Hoge",
+  "Ollie Schniederjans",
+  "Grayson Murray",
+  "Kevin Na",
+  "Tommy Fleetwood",
+  "Byeong Hun An",
+  "Russell Henley",
+  "Bud Cauley",
+  "Trey Mullinax",
+  "Daniel Berger",
+  "Tyrrell Hatton",
+  "Brice Garnett",
+  "Jason Kokrak",
+  "Branden Grace",
+  "Jamie Lovemark",
+  "Brandon Harkins",
+  "Alex Cejka",
+  "Scott Stallings",
+  "Charley Hoffman",
+  "Patrick Rodgers",
+  "Peter Uihlein",
+  "Brian Stuard",
+  "Keith Mitchell",
+  "Sergio Garcia",
+  "Brooks Koepka",
+  "Ryan Palmer",
+  "Martin Piller",
+  "Lucas Glover",
+  "Jhonattan Vegas",
+  "Anirban Lahiri",
+  "Jimmy Walker",
+  "Scott Brown",
+  "Abraham Ancer",
+  "Russell Knox",
+  "John Huh",
+  "Scott Piercy",
+  "Martin Laird",
+  "Sung-hoon Kang",
+  "Vaughn Taylor",
+  "Harris English",
+  "Louis Oosthuizen",
+  "Rory Sabbatini",
+  "Kelly Kraft"
+]
+
+player_list.each do |full_name|
+  Player.create(full_name: full_name)
+end
+
+tournament_list = [
+  [ "The Players", 2018 ],
+  [ "Memorial Tournament", 2018 ],
+  [ "US Open", 2018 ]
+]
+
+tournament_list.each do |tournament_name, tournament_year|
+  Tournament.create(tournament_name: tournament_name, tournament_year: tournament_year)
+end
+
+PlayerTournament.create(player_id: 1, tournament_id: 1, round_1: 75)
