@@ -1,3 +1,8 @@
+require 'database_cleaner'
+DatabaseCleaner.clean_with(:truncation)
+
+User.create(email: "test@test.com", password: "password")
+
 player_list = [
   "J.J. Spaun",
   "Chris Kirk",
@@ -65,4 +70,12 @@ tournament_list.each do |tournament_name, tournament_year|
   Tournament.create(tournament_name: tournament_name, tournament_year: tournament_year)
 end
 
-PlayerTournament.create(player_id: 1, tournament_id: 1, round_1: 75)
+player_tournament_list = [
+  [ 1, 1, 75 ],
+  [ 2, 2, 70 ],
+  [ 10, 25, 25 ],
+]
+
+player_tournament_list.each do |player_id, tournament_id, round_1|
+  PlayerTournament.create(player_id: player_id, tournament_id: tournament_id, round_1: round_1)
+end
