@@ -1,10 +1,33 @@
 <div class="column">
-  <%= @player.full_name %>
-
-  Scores:
-  <% @player.player_tournaments.each do |player_tournament| %>
-    <p>Tournament Name: <%= player_tournament.tournament.tournament_name %></p>
-    <p>Round 1: <%= player_tournament.round_1 %></p>
-  <% end %>
-
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title text-center"><%= @player.full_name %></div>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Tournament</th>
+            <th>Round 1</th>
+            <th>Round 2</th>
+            <th>Round 3</th>
+            <th>Round 4</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @player.player_tournaments.each do |player_tournament| %>
+          <tr class="active">
+            <td><%= player_tournament.tournament.tournament_name %></td>
+            <td><%= player_tournament.round_1 %></td>
+            <td><%= player_tournament.round_2 %></td>
+            <td><%= player_tournament.round_3%></td>
+            <td><%= player_tournament.round_4 %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-footer">
+    </div>
+  </div>
 </div>

@@ -1,46 +1,48 @@
 <div class="column">
-<h4>Creating New Team</h4>
-<%= @team.errors.full_messages.first if @team.errors.any? %>
-<%= form_for @team, :html => { id: :form_id, :class => 'form-horizontal' } do |f| %>
-  <div class="form-group">
-    <div class="col-2 col-sm-12">
-      <label class="form-label">Team Name</label>
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title text-center"><h4>Creating New Team</h4></div>
+      <div class="panel-subtitle text-center">All of this can be updated until lockdate.</div>
     </div>
-    <div class="col-10 col-sm-12">
-      <%= f.text_field :team_name, class: 'form-input' %>
+    <div class="panel-body">
+    <%= @team.errors.full_messages.first if @team.errors.any? %>
+    <%= form_for @team, :html => { id: :form_id, :class => 'form-horizontal' } do |f| %>
+      <div class="form-group">
+        <div class="col-2 col-sm-12">
+          <label class="form-label">Team Name</label>
+        </div>
+        <div class="col-10 col-sm-12">
+          <%= f.text_field :team_name, class: 'form-input' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-2 col-sm-12">
+          <label class="form-label">Tournament</label>
+        </div>
+        <div class="col-10 col-sm-12">
+          <%= f.collection_select(:tournament_id, Tournament.all, :id, :tournament_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
+        </div>
+      </div>
+      <br>
+      <div class="divider text-center" data-content="SET LINE-UP"></div>
+      <br>
+      <% for i in 1..10 do %>
+        <%= f.fields_for :team_players do |team_player| %>
+        <div class="form-group">
+          <div class="col-2 col-sm-12">
+            <label class="form-label">Rank <%= "#{i}" %></label>
+          </div>
+          <div class="col-10 col-sm-12">
+            <%= team_player.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
+            <%= team_player.hidden_field :position, value: "#{i}" %>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="panel-footer">
+      <%= f.submit class: 'btn btn-primary submission', form: :form_id %>
+      <% end %>
     </div>
   </div>
-  <div class="form-group">
-    <div class="col-2 col-sm-12">
-      <label class="form-label">Tournament</label>
-    </div>
-    <div class="col-10 col-sm-12">
-      <%= f.collection_select(:tournament_id, Tournament.all, :id, :tournament_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
-    </div>
-  </div>
-
-  <br>
-  <div class="divider text-center" data-content="SET LINE-UP"></div>
-  <br>
-
-  <% for i in 1..10 do %>
-    <%= f.fields_for :team_players do |team_player| %>
-    <div class="form-group">
-      <div class="col-2 col-sm-12">
-        <label class="form-label">Rank <%= "#{i}" %></label>
-      </div>
-      <div class="col-10 col-sm-12">
-        <%= team_player.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
-        <%= team_player.hidden_field :position, value: "#{i}" %>
-      </div>
-    </div>
-    <% end %>
-  <% end %>
 </div>
-</div>
-<%= f.submit class: 'btn btn-primary submission', form: :form_id %>
-<% end%>
-<br><br>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae felis bibendum, tempus ipsum ac, finibus est. Integer magna nibh, venenatis non tristique quis, bibendum at lorem. Nam at ante quis massa vestibulum vestibulum sit amet imperdiet metus. Nulla non iaculis augue. Morbi in turpis sed lectus aliquet commodo. Cras ornare nunc quis est dapibus porta ac nec urna. Nulla malesuada risus ut consectetur pharetra. Praesent lorem leo, tincidunt tincidunt vehicula eget, cursus ac magna. Maecenas at dictum mi. Nunc vel blandit neque. Sed feugiat sit amet mauris non sollicitudin.
-</div>
-
