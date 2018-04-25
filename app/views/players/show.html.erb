@@ -1,3 +1,10 @@
 <div class="column">
   <%= @player.full_name %>
+
+  Scores:
+  <% @player.player_tournaments.each do |player_tournament| %>
+    <p>Tournament Name: <%= player_tournament.tournament.tournament_name %></p>
+    <p>Round 1: <%= player_tournament.round_1 %></p>
+  <% end %>
+
 </div>

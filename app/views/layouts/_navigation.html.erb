@@ -2,12 +2,11 @@
   <section class="navbar-section">
       <%= link_to 'Home', root_path, class: 'btn btn-link' %>
       <% if user_signed_in? %>
-      <%= link_to 'Create Team', new_team_path, class: 'btn btn-link' %>
+      <%= link_to 'Create New Team', new_team_path, class: 'btn btn-link' %>
       <%= link_to 'Teams', teams_path, class: 'btn btn-link' %>
-      <%= link_to 'Add Player', new_player_path, class: 'btn btn-link' %>
-      <%= link_to 'Players', players_path, class: 'btn btn-link' %>
   </section>
   <section class="navbar-section">
+      <%= link_to 'Players', players_path, class: 'btn btn-link' %>
       <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'btn btn-link') %>    
       <% else %>
       <%= link_to('Login', new_user_session_path, class: 'btn btn-link')  %>
