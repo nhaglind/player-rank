@@ -1,12 +1,11 @@
 <div class="column">
-<h4><%= @team.team_name %></h4>
+<h4><%= @team.team_name %> - <em><%= @team.tournament.tournament_name %></em></h4>
 
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Rank</th>
       <th>Player</th>
-      <th>Tournament</th>
       <th>Round 1</th>
       <th>Round 2</th>
       <th>Round 3</th>
@@ -18,7 +17,6 @@
     <tr>
       <td><%= team_player.position %></td>
       <td><%= team_player.player.full_name %></td>
-      <td>TOURNAMENT NAME</td>
       <td>ROUND_1 SCORE</td>
       <td>ROUND_2 SCORE</td>
       <td>ROUND_3 SCORE</td>

@@ -82,12 +82,12 @@ player_tournament_list.each do |player_id, tournament_id, round_1|
 end
 
 team_list = [
-  [1, "Team Edward"],
-  [2, "Team Jacob"]
+  [1, "Team Edward", 1],
+  [2, "Team Jacob", 1]
 ]
 
-team_list.each do |user_id, team_name|
-  Team.create(user_id: user_id, team_name: team_name)
+team_list.each do |user_id, team_name, tournament_id|
+  Team.create(user_id: user_id, team_name: team_name, tournament_id: tournament_id)
 end
 
 team_player_list = [

@@ -17,7 +17,7 @@
       <label class="form-label">Tournament</label>
     </div>
     <div class="col-10 col-sm-12">
-      #
+      <%= f.collection_select(:tournament_id, Tournament.all, :id, :tournament_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
     </div>
   </div>
 
