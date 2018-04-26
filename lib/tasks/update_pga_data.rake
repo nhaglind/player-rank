@@ -7,7 +7,7 @@ namespace :update_pga_data do
     url = 'http://www.espn.com/golf/leaderboard?tournamentId=401025221'
     doc = Nokogiri::HTML(open(url))
 
-    tournament_name = doc.xpath('//*[@id="main-container"]/div/section[1]/header/div[2]/div/h1')
+    tournament_name = doc.xpath('//*[@id="main-container"]/div/section[1]/header/div[2]/div/h1').text
     names = []
     round_1 = []
     round_2 = []
@@ -36,6 +36,21 @@ namespace :update_pga_data do
 
     player_data = names.zip(round_1, round_2, round_3, round_4, to_par)
 
-    puts player_data
+    tournament = Tournament.where(tournament_name: tournament_name).first_or_initialize
+    tournament.save
+
+    player_data.each do |i|
+      player = Player.where(full_name: i[0]).first_or_initialize
+      player.save
+      player_tournament = PlayerTournament.where('player_id = ? AND tournament_id = ?', player.id, tournament.id).first_or_initialize
+      player_tournament.player_id = player.id
+      player_tournament.tournament_id = tournament.id
+      player_tournament.round_1 = i[1]
+      player_tournament.round_2 = i[2]
+      player_tournament.round_3 = i[3]
+      player_tournament.round_4 = i[4]
+      player_tournament.to_par = i[5]
+      player_tournament.save(:validate => false)
+    end
   end
 end
