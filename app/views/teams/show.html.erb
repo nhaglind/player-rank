@@ -43,7 +43,9 @@
       </tbody>
       </table>
       <br>
-      Total Points Earned: <strong><%= sum %></strong>
+      <div class="toast toast-primary text-center">
+        Total PR Strokes: <strong><%= sum %></strong>
+      </div>
     </div>
     <div class="panel-footer">
       <% if current_user == @team.user %>
