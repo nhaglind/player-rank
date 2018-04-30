@@ -7,8 +7,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    @team_players = TeamPlayer.where(team_id: @team.id)
-    @scores = PlayerTournament.where(player_id: [@team_players.ids]).where(tournament_id: @team.tournament_id)
+    @scores = PlayerTournament.where(tournament_id: @team.tournament_id).where(player_id: @team.players)
   end
 
   def new

@@ -33,7 +33,7 @@
             <label class="form-label">Rank <%= "#{i}" %></label>
           </div>
           <div class="col-10 col-sm-12">
-            <%= team_player.collection_select(:player_id, Player.all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
+            <%= team_player.collection_select(:player_id, Player.order('full_name').all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
             <%= team_player.hidden_field :position, value: "#{i}" %>
           </div>
         </div>

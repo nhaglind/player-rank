@@ -18,26 +18,16 @@
         </tr>
       </thead>
       <tbody>
-      <% @team.team_players.each do |team_player| %>
-        <tr>
-          <td><%= team_player.position %></td>
-          <td><%= team_player.player.full_name %></td>
-          <% if team_player.player.player_tournaments.exists? %>
-          <% team_player.player.player_tournaments.each do |round| %>
-            <td><%= round.to_par %></td>
-            <td><%= round.round_1 %></td>
-            <td><%= round.round_2 %></td>
-            <td><%= round.round_3 %></td>
-            <td><%= round.round_4 %></td>
-          <% end %>
-          <% else %>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          <% end %>
-        </tr>
+      <% @scores.each do |round| %>
+      <tr>
+        <td>Rank</td>
+        <td><%= round.player.full_name %></td>
+        <td><%= round.to_par %></td>
+        <td><%= round.round_1 %></td>
+        <td><%= round.round_2 %></td>
+        <td><%= round.round_3 %></td>
+        <td><%= round.round_4 %></td>
+      </tr>
       <% end %>
       </tbody>
     </table>

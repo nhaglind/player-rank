@@ -3,8 +3,17 @@ namespace :update_pga_data do
   task fetch_players: :environment do
     require 'nokogiri'
     require 'open-uri'
+    
+    # 2018 Masters - DONE
+    # url = 'http://www.espn.com/golf/leaderboard?tournamentId=401025221'
 
-    url = 'http://www.espn.com/golf/leaderboard?tournamentId=401025221'
+    # RBC Heritage - DONE
+    # url = 'http://www.espn.com/golf/leaderboard?tournamentId=401025246'
+
+    # Valero Texas Open - DONE
+    # url = 'http://www.espn.com/golf/leaderboard?tournamentId=401025247'
+
+    
     doc = Nokogiri::HTML(open(url))
 
     tournament_name = doc.xpath('//*[@id="main-container"]/div/section[1]/header/div[2]/div/h1').text
