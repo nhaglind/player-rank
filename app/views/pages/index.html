@@ -1,2 +1,55 @@
+<script>
+var end = new Date('08/27/2018 11:00 AM');
+
+var _second = 1000;
+var _minute = _second * 60;
+var _hour = _minute * 60;
+var _day = _hour * 24;
+var timer;
+
+function showRemaining() {
+  var now = new Date();
+  var distance = end - now;
+  if (distance < 0) {
+    clearInterval(timer);
+    document.getElementById('countdown').textContent = 'EXPIRED!';
+    return;
+  }
+  var days = Math.floor(distance / _day);
+  var hours = Math.floor((distance % _day) / _hour);
+  var minutes = Math.floor((distance % _hour) / _minute);
+  var seconds = Math.floor((distance % _minute) / _second);
+
+  document.getElementById('countdown').textContent = days + ' days ';
+  document.getElementById('countdown').textContent += hours + ' hrs ';
+  document.getElementById('countdown').textContent += minutes + ' mins ';
+  document.getElementById('countdown').textContent += seconds + ' secs';
+}
+
+timer = setInterval(showRemaining, 1000);
+</script>
+
+<div class="columnn">
+<div class="parallax">
+  <div class="parallax-top-left" tabindex="1"></div>
+  <div class="parallax-top-right" tabindex="2"></div>
+  <div class="parallax-bottom-left" tabindex="3"></div>
+  <div class="parallax-bottom-right" tabindex="4"></div>
+  <div class="parallax-content">
+    <div class="parallax-front">
+      <h2>Player selection locks in:
+        <div id="countdown"></div> 
+      </h2>
+    </div>
+    <div class="parallax-back">
+      <img src="https://cdn-s3.si.com/s3fs-public/2018/04/05/tiger-woods-live-blog.jpg" class="img-responsive rounded" ...>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="divider text-center" data-content="Game Rules"></div>
+
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum massa eget placerat rutrum. Fusce venenatis sit amet velit elementum feugiat. Praesent faucibus a odio et imperdiet. Etiam id nulla lorem. Nulla sollicitudin sodales nibh, at commodo sapien consequat ac. Vestibulum neque massa, dignissim id ultrices et, pulvinar vel magna. Maecenas fringilla ultricies felis ut viverra. In tincidunt ante ac augue ullamcorper, eu tempor ex tincidunt. Cras vulputate odio a sem fermentum, vitae iaculis justo mollis. Nam orci sapien, laoreet dapibus ex ut, efficitur euismod nisi. Phasellus odio risus, porttitor nec justo sed, egestas sagittis libero. Aliquam at pulvinar velit, vel dignissim mi.</p>
 <p>Suspendisse efficitur enim vitae rhoncus euismod. In dictum ex a arcu vehicula tempus. Suspendisse potenti. Mauris imperdiet vel enim a imperdiet. Nullam vitae erat sed nisi dapibus semper ut a sapien. Maecenas mattis sed leo condimentum dignissim. Integer egestas auctor magna, ut ultricies nunc commodo eu. Fusce facilisis eu libero at tempor. Nulla porttitor lacus ante, sed convallis augue varius ac. Vestibulum fringilla nec massa in auctor. Etiam eu eros eget velit lobortis pellentesque nec vitae metus. Praesent placerat et diam id feugiat.</p>
+</div>
