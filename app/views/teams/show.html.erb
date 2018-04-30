@@ -8,8 +8,8 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Bad Points Earned</th>
           <th>Rank</th>
+          <th>PR Strokes</th>
           <th>Player</th>
           <th>To Par</th>
           <th>Round 1</th>
@@ -17,16 +17,19 @@
           <th>Round 3</th>
           <th>Round 4</th>
           <th>Total</th>
+          <th>Modifier</th>
         </tr>
       </thead>
       <tbody>
       <% sum = 0 %>
+      <% counter = 11 %>
       <% @scores.zip(@team.team_players).each do |round, player| %>
       <tr>
+        <% counter -= 1 %>
         <% total_score = round.round_1 + round.round_2 + round.round_3 + round.round_4 %>
-        <td><%= total_score * 3 %></td>
-        <% sum += total_score # position [modifier] %>
         <td><%= player.position %></td>
+        <td><%= total_score * counter %></td>
+        <% sum += total_score * counter %>
         <td><%= round.player.full_name %></td>
         <td><%= round.to_par %></td>
         <td><%= round.round_1 %></td>
@@ -34,6 +37,7 @@
         <td><%= round.round_3 %></td>
         <td><%= round.round_4 %></td>
         <td><%= total_score %></td>
+        <td><%= counter %></td>
       </tr>
       <% end %>
       </tbody>
