@@ -15,14 +15,6 @@
           <%= f.text_field :team_name, class: 'form-input' %>
         </div>
       </div>
-      <div class="form-group">
-        <div class="col-2 col-sm-12">
-          <label class="form-label">Tournament</label>
-        </div>
-        <div class="col-10 col-sm-12">
-          <%= f.collection_select(:tournament_id, Tournament.all, :id, :tournament_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
-        </div>
-      </div>
       <br>
       <div class="divider text-center" data-content="ADJUST LINE-UP"></div>
       <br>
@@ -32,8 +24,8 @@
           <label class="form-label">Rank <%= team_player.label(:position, team_player.object.position) %></label>
         </div>
         <div class="col-10 col-sm-12">
-          <%= team_player.collection_select(:player_id, Player.order('full_name').all, :id, :full_name , {required: true, include_blank: false}, {class: 'form-select'}) %>
-          <%= team_player.hidden_field :position %>
+        <%= team_player.collection_select(:player_id, Player.where(:tournament_id == @team.tournament_id ).order('full_name'), :id, :full_name , {required: true, include_blank: false}, {class: 'option-select-fixed'}) %>          
+        <%= team_player.hidden_field :position %>
         </div>
       </div>
       <% end %>

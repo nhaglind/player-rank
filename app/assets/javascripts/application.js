@@ -14,3 +14,11 @@
 //= require turbolinks
 //= require jquery_ujs
 //= require_tree .
+//= require selectize
+
+$(document).on('turbolinks:load', function () {
+  $('.option-select-fixed').selectize({
+    create: false,
+    sortField: 'text'
+  });
+});
