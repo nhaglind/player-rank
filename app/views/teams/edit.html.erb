@@ -24,7 +24,7 @@
           <label class="form-label">Rank <%= team_player.label(:position, team_player.object.position) %></label>
         </div>
         <div class="col-10 col-sm-12">
-        <%= team_player.collection_select(:player_id, Player.where(:tournament_id == @team.tournament_id ).order('full_name'), :id, :full_name , {required: true, include_blank: false}, {class: 'option-select-fixed'}) %>          
+        <%= team_player.collection_select(:player_id, Player.includes(:player_tournaments).where(:tournament_id == @team.tournament_id ).order('full_name'), :id, :full_name , {required: true, include_blank: false}, {class: 'option-select-fixed'}) %>          
         <%= team_player.hidden_field :position %>
         </div>
       </div>
